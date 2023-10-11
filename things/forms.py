@@ -1,9 +1,9 @@
 """Forms of the project."""
-from .models import Thing
+from models import Thing
 from django import forms
 
 # Create your forms here.
-class thingform(forms.ModelForm):
+class ThingForm(forms.ModelForm):
     class Meta:
         model = Thing        
         fields =["name", "description", "quantity"]
@@ -11,7 +11,7 @@ class thingform(forms.ModelForm):
  
     def clean(self):
  
-        super(thingform, self).clean()
+        super(ThingForm, self).clean()
          
         name = self.cleaned_data.get('name')
         description = self.cleaned_data.get('description')
