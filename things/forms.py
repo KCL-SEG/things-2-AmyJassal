@@ -17,6 +17,9 @@ class ThingForm(forms.ModelForm):
         description = self.cleaned_data.get('description')
         quantity = self.cleaned_data.get('quantity')
  
+        if name == None:
+            self.errors['username'] = self.error_class([
+                'Username cannot be blank!'])
         if len(name) > 35:
             self._errors['username'] = self.error_class([
                 'Maximum 35 characters allowed'])
