@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .forms import thingform
 
 def home(request):
-    return render(request, 'home.html', {'form': form})
+    form = thingform()
+    return render(request, 'home.html', {'thingform': thingform})
